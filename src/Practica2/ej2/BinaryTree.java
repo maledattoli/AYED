@@ -1,9 +1,11 @@
 package Practica2.ej2;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import Practica1.ejercicio8.*;
 
 public class BinaryTree<T> {
+	
+	public BinaryTree() {
+		super();
+	}
 	private T data;
 	private BinaryTree<T> leftChild;
 	private BinaryTree<T> rightChild;
@@ -48,26 +50,26 @@ public class BinaryTree<T> {
     }
     //Preguntar antes de invocar si hasLeftChild()
     public boolean hasLeftChild() {
-    	return this.leftChild==null;
+    	return !(this.leftChild==null);
     }
   //Preguntar antes de invocar si hasRightChild()
     public boolean hasRightChild() {
-    	return this.rightChild== null;
+    	return !(this.rightChild== null);
     }
     
     public int contarHojas() {
     	int cantidadHojas=0;
     	if(this.isLeaf()) {// si no tiene hijos no sigo la recursividad
-    		return 1;
+    		cantidadHojas = 1;
     	}
     	//sino si sigo 
     	else {
     		if(this.hasLeftChild()) {//si tiene hijo izquierdo sigo con la recursividad para el hijo izquierdo
-    			return cantidadHojas + this.getLeftChild().contarHojas();
+    			cantidadHojas += this.getLeftChild().contarHojas();
     		}
     		//si tiene hijo derecho sigo con la recursividad para el hijo derecho
     		if(this.hasRightChild()) {
-    			return cantidadHojas + this.getRightChild().contarHojas();
+    			cantidadHojas += this.getRightChild().contarHojas();
     		}
     	}
     	return cantidadHojas;
@@ -85,12 +87,28 @@ public class BinaryTree<T> {
     	return arbolitoEspejo;
     }
     public void entreNiveles(int n, int m) {
-    	if(this.isEmpty() || n<0 || m<n)return; // si ponen algo q causa fallo termina
-    	Queue<BinaryTree<T>> colita = new LinkedList();
-    	colita.add(this);
+    	Queue<BinaryTree<T>> colita = new Queue<BinaryTree<T>>();
+    	BinaryTree<T> arbAux;//arbolito auxiliar
+    	
+    	colita.enqueue(this);//encolo el arbol completo
+    	colita.enqueue(null);
     	int nivel=0;
-    	while(!colita.isEmpty()) {
-    		
+    	while(!colita.isEmpty()&&(nivel<=m)) { //pra que no se recorra si no hay nada y si termino el nivel no siga
+    		arbAux = colita.dequeue();
+    		if(arbAux!= null) {
+    			if(nivel>=n)
+    				System.out.println(arbAux.getData());
+    			if(arbAux.hasLeftChild()) 
+    				colita.enqueue(arbAux.getLeftChild());
+    			if(arbAux.hasRightChild()) 
+    				colita.enqueue(arbAux.getRightChild());
+    		}
+    		else {
+    			if(!colita.isEmpty()) {//si es null y todavia quedan elementos en la cola es que se termino el nivel
+    				colita.enqueue(null);
+    				nivel++;
+    			}
+    		}
     	}
     	
     }
