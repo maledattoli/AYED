@@ -1,0 +1,44 @@
+# Archivos y carpetas comunes de Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Carpetas de compilación
+/bin/
+/build/
+/out/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de Eclipse
+#.classpath ya fue apra que no quede no aesthetic a
+.project
+.settings/
+
+# Configuración de IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.swp
+*.bak
+
+# Librerías descargadas (si no usás un sistema de dependencias)
+lib/
+
+# Archivos de Maven/Gradle (solo si no querés subir dependencias locales)
+target/
+.gradle/
+build/
+
+# Archivos de configuración personal
+*.env
