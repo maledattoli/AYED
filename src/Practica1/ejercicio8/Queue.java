@@ -13,10 +13,10 @@ public class Queue<T> {
 	}
 	public T dequeue() {
 		if (isEmpty()) throw new IllegalStateException("La cola está vacía");
-		else return  data.get(0);
+		else return  data.remove(0);
 	}
 	public boolean isEmpty() {
-		return data.isEmpty();
+		return data.size() ==0;
 	}
 	public int size() {
 		return data.size();

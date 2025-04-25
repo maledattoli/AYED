@@ -28,14 +28,12 @@ public class GeneralTree<T> {
 		return children;
 	}
 	public void setChildren(List<GeneralTree<T>> children) {
-		if(children== null) {
-			this.children= new LinkedList<GeneralTree<T>>();
-		}
-		else
-			this.children = children;
+		if (children != null) {
+	        this.children = children;
+	    }
 	}
-	public void addChildren(GeneralTree<T> nodo) {
-		children.add(nodo);
+	public void addChild(GeneralTree<T> nodo) {
+	        this.getChildren().add(nodo);	    
 	}
 	public boolean isLeaf() {
 		return !hasChildren();
@@ -44,7 +42,7 @@ public class GeneralTree<T> {
 		return !children.isEmpty();
 	}
 	public boolean isEmpty() {
-		return !hasChildren() && data== null;
+		return data == null && !this.hasChildren();
 	}
 	public void removeChild(GeneralTree<T> child) {
 		if(this.hasChildren())

@@ -3,7 +3,7 @@
 *.jar
 *.war
 *.ear
-
+/pruebas/
 # Carpetas de compilación
 /bin/
 /build/
