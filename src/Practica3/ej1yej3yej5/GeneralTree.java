@@ -1,4 +1,4 @@
-package Practica3.ej1yej3;
+package Practica3.ej1yej3yej5;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -191,6 +191,51 @@ public class GeneralTree<T> {
 			}
 		}	
 		return ancho;	
+	}
+	///555555555555
+	public boolean esAncestro(T a, T b) {
+		return this.isEmpty() ? false : esAncestroBuscar(a,b);
+	}
+	private boolean esAncestroBuscar(T a, T b) {//a ver si esta a antes de b y si existe
+		boolean resultado=false;
+		GeneralTree<T>nodoA= null;
+		GeneralTree<T>aux;
+		Queue<GeneralTree<T>>q= new Queue<>();
+		q.enqueue(this);
+		
+		while(!q.isEmpty()) {
+			aux= q.dequeue();
+			if(aux.getData().equals(b) && !resultado) {
+				return false;
+			}
+			if(aux.getData().equals(a)) {
+				resultado=true;
+				nodoA=aux;
+			}
+			if(!resultado){//si no se encontro el nodo todavia
+				for(GeneralTree<T> child : aux.getChildren()) {
+					q.enqueue(child);
+				}
+			}
+		}
+		return resultado ? buscoB(nodoA,b): false;
+	}
+	private boolean buscoB(GeneralTree<T> a, T b) {
+		GeneralTree<T> aAux;
+		Queue<GeneralTree<T>>q = new Queue<>();
+		q.enqueue(a);
+		while(!q.isEmpty()) {
+			aAux= q.dequeue();
+			if(aAux.getData().equals(b)) {
+				return true;
+			}
+			else {//si este dato no es sigue recorriendo los otros hijos
+				for(GeneralTree<T> child : aAux.getChildren()) {
+					q.enqueue(child);
+				}
+			}
+		}
+		return false;// recorrio todo y no estaba la b
 	}
 	
 }

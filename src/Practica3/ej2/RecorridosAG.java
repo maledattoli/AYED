@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Practica1.ejercicio8.Queue;
-import Practica3.ej1yej3.GeneralTree;
+import Practica3.ej1yej3yej5.GeneralTree;
 
 public class RecorridosAG {
 	
