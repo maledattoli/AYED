@@ -63,7 +63,7 @@ public class GeneralTree<T> {
 			l.add(dato);
 		List<GeneralTree<T>> children = this.getChildren();
 		for(GeneralTree<T> child: children)
-			this.numerosImparesMayoresQuePreOrden(n,l);
+			child.numerosImparesMayoresQuePreOrden(n,l);
 		
 			
 	}
@@ -83,7 +83,7 @@ public class GeneralTree<T> {
 			l.add(data);
 		}
 		for(GeneralTree<T> child : children)
-			this.numerosImparesMayoresQuePreOrden(n, l);
+			child.numerosImparesMayoresQuePreOrden(n, l);
 		
 	}
 	public List<Integer> numerosImparesMayoresQuePostOrden (Integer n){
@@ -97,7 +97,7 @@ public class GeneralTree<T> {
 		Iterator<GeneralTree<T>> it = children.iterator();
 		while(it.hasNext()) {
 			GeneralTree<T> child = it.next();
-			this.numerosImparesMayoresQuePostOrden( n, l);
+			child.numerosImparesMayoresQuePostOrden( n, l);
 		}
 		int data = (Integer)this.getData();
 		if((data>n)&&(data%2 != 0))

@@ -15,7 +15,7 @@ public class maina{
 	}
 	public static void main(String[] args) {
 	
-		int [] arreglo = {9, 2, 7, 4, 5, 3};
+		//int [] arreglo = {9, 2, 7, 4, 5, 3};
 		
 		
 	}
