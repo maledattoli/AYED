@@ -36,7 +36,7 @@ public class Recorridos<T> {
 	public List<T> bfs(Graph<T>grafo) {
 		boolean[]marcas = new boolean[grafo.getSize()];
 		List<T>list = new LinkedList<>();//lista a devolver
-		for( int i =1; i<grafo.getSize();i++) {
+		for( int i = 0; i<grafo.getSize();i++) {
 			if(!marcas[i]) {
 				bfs(i, grafo, list, marcas);
 			}

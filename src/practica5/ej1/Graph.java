@@ -3,7 +3,7 @@ package practica5.ej1;
 import java.util.List;
 
 public interface Graph<T> {
-
+	
 	/**
 	 * Crea un vértice con el dato recibido y lo retorna.
 	 * 
